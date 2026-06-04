@@ -1,0 +1,33 @@
+.weather {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    width: auto;
+    min-height: 529px;
+    padding: 24px;
+    background-color: var(--color-white);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (max-width: 500.98px) {
+    .weather {
+      max-width: 400px;
+    }
+  }

@@ -1,0 +1,224 @@
+.todoItem {
+  border: var(--border);
+  border-radius: var(--border-radius);
+
+  &:not(.todoItemEditing) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 10px;
+    padding: 12px 12px 12px 10px;
+  }
+
+  &:hover {
+    background-color: var(--color-gray-1);
+  }
+
+  &.isDisappearing {
+    opacity: 0;
+    translate: 0 -75%;
+    transition-duration: calc(var(--transition-duration) * 2);
+    pointer-events: none;
+
+    & ~ .todoItem {
+      translate: 0 calc((100% + var(--todoListRowGap)) * -1);
+      transition-delay: var(--transition-duration);
+      transition-duration: var(--transition-duration);
+      pointer-events: none;
+    }
+  }
+
+  &.isAppearing {
+    animation: appear calc(var(--transition-duration) * 2);
+    pointer-events: none;
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        translate: 0 -75%;
+      }
+    }
+  }
+}
+
+.viewMain {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 12px;
+  min-width: 0;
+}
+
+.viewActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 8px;
+  padding-left: 32px;
+}
+
+.titleLink {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.todoItemEditing {
+  display: block;
+  align-items: stretch;
+  padding: 14px 12px;
+  column-gap: 0;
+  background-color: var(--color-gray-1);
+
+  &:hover {
+    background-color: var(--color-gray-1);
+  }
+}
+
+.editBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+}
+
+.editHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+.editFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.editFooter .deleteButton {
+  margin-left: auto;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  appearance: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--color-gray-4);
+  border-radius: 4px;
+
+  &:checked {
+    background-color: var(--color-dark-2);
+    border-color: var(--color-dark-2);
+
+    & + .label {
+      color: var(--color-gray-4);
+      text-decoration: line-through;
+    }
+  }
+
+  &:not(:checked) {
+    &::after {
+      opacity: 0;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 16px;
+    height: 16px;
+    background: url('@/shared/assets/icons/icon-check_white.svg') center/contain no-repeat;
+  }
+}
+
+.todoItemEditing .checkbox {
+  margin-top: 10px;
+}
+
+.label {
+  width: 100%;
+  pointer-events: none;
+}
+
+.titleField {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 140px;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.45;
+  color: inherit;
+  border: var(--border);
+  border-radius: 8px;
+  background-color: var(--color-white);
+  resize: vertical;
+}
+
+.actionButton {
+  flex-shrink: 0;
+  height: 36px;
+  padding-inline: 14px;
+  border: 1px solid var(--color-dark-2);
+  border-radius: 8px;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  &:hover {
+    color: var(--color-dark-1);
+    background-color: var(--color-dark-2);
+    transform: scale(110%);
+  box-shadow: var(--box-shadow);
+  }
+}
+
+.deleteButton {
+  flex-shrink: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--color-gray-4);
+  background-color: transparent;
+  border: none;
+  border-radius: inherit;
+
+  &:hover {
+    color: var(--color-white);
+    background-color: var(--color-dark-1);
+  }
+
+  &:active {
+    scale: 1.05;
+  }
+
+  * {
+    pointer-events: none;
+  }
+}
+
+.difftitle {
+  display: flex;
+  justify-content: center;
+}

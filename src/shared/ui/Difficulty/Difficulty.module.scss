@@ -1,0 +1,113 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-left: .2rem;
+  padding-top: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.button1, .button2, .button3 {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark-2);
+}
+
+.button1:hover[data-theme="light"], .button1_chosen[data-theme="light"] {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: greenyellow;
+  border: 1px solid greenyellow;
+  color: var(--color-dark);
+}
+.button2:hover[data-theme="light"], .button2_chosen[data-theme="light"] {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: yellow;
+  border: 1px solid yellow;
+  color: var(--color-dark);
+}
+.button3:hover[data-theme="light"], .button3_chosen[data-theme="light"] {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: red;
+  border: 1px solid red;
+  color: var(--color-dark);
+}
+.button1_chosen[data-theme="dark"] {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: greenyellow;
+  border: 1px solid greenyellow;
+  color: var(--color-white);
+  transform: scale(120%);
+  margin: .5rem;
+}
+.button2_chosen[data-theme="dark"] {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: yellow;
+  border: 1px solid yellow;
+  color: var(--color-white);
+  transform: scale(120%);
+  margin: .5rem;
+}
+
+.button3_chosen[data-theme="dark"] {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: red;
+  border: 1px solid red;
+  color: var(--color-white);
+  transform: scale(120%);
+  margin: .5rem;
+}
+
+.button3:hover[data-theme="dark"],
+.button2:hover[data-theme="dark"],
+.button1:hover[data-theme="dark"] {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  background-color: transparent;
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark-2);
+  transform: scale(120%);
+  margin: .5rem;
+}
+
+

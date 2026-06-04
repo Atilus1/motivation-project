@@ -1,0 +1,137 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  width: 100%;
+  max-width: 404px;
+  min-height: 429px;
+  padding: 24px;
+  background-color: var(--color-white);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: max-width 0.25s ease;
+}
+
+/* .todoExpanded {
+  max-width: min(920px, 100%);
+} */
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.titleLink {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.form {
+  display: flex;
+  column-gap: 16px;
+}
+.form2 {
+  display: flex;
+  column-gap: 16px;
+}
+
+.field {
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 16px;
+  font-weight: 600;
+}
+
+.deleteAllButton[data-theme="light"] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--input-height);
+  padding: 12px;
+  color: var(--color-black);
+  background-color: white;
+  border: 1px solid var(--color-dark-2);
+  border-radius: var(--border-radius);
+
+  &:not(:disabled) {
+    &:hover {
+      color: var(--color-dark-1);
+      background-color: white;
+      transform: scale(110%);
+    box-shadow: var(--box-shadow);
+    }
+
+    &:active {
+      scale: 1.05;
+    }
+  }
+
+  &:disabled {
+    background-color: transparent;
+    border-color: var(--color-dark-2);
+    cursor: not-allowed;
+  }
+}
+
+.deleteAllButton[data-theme="dark"] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--input-height);
+  padding: 12px;
+  color: var(--color-black);
+  background-color: transparent;
+  border: 1px solid var(--color-dark-2);
+  border-radius: var(--border-radius);
+
+  &:not(:disabled) {
+    &:hover {
+      color: var(--color-dark-1);
+      background-color: var(--color-dark-2);
+      transform: scale(110%);
+    box-shadow: var(--box-shadow);
+    }
+
+    &:active {
+      scale: 1.05;
+    }
+  }
+
+  &:disabled {
+    background-color: transparent;
+    border-color: var(--color-dark-2);
+    cursor: not-allowed;
+  }
+}
+
+.list,
+.emptyMessage {
+  &:empty {
+    display: none;
+  }
+}
+
+.list {
+  --todoListRowGap: 8px;
+
+  display: grid;
+  row-gap: var(--todoListRowGap);
+}
+
+.emptyMessage {
+  text-align: center;
+  color: var(--color-gray-4);
+}
