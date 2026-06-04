@@ -10,6 +10,7 @@ const Card = (props) => {
         buttontext,
         buttonlink,
         price,
+        func,
     } = props
 
     return (
@@ -17,8 +18,8 @@ const Card = (props) => {
             <h3>{children}</h3>
             <img src={`${image}`} alt="" />
             <p>{description}</p>
-            <p>{price}</p>
-            <Button type="button">
+            <p>{price} ⭐</p>
+            <Button type="button" onClick={() => func(price)}>
                 <RouterLink
                     className={styles.titleLink}
                     to={`${buttonlink}`}

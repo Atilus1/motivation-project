@@ -19,7 +19,7 @@ const Storage = (props) => {
         <Button type="button">
           <RouterLink
             className={styles.titleLink}
-            to={`/shop`}
+            to={`shop`}
           >
             Магазин
           </RouterLink>

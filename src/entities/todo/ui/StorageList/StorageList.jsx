@@ -8,6 +8,8 @@ const StorageList = () => {
   const {
   } = useContext(TasksContext)
 
+  const SourceLinkPrefix = "https://raw.githubusercontent.com/Atilus1/motivation-project/refs/heads/main/"
+
   const [items, setItems] = useState([])
   useEffect(() => {
     tasksAPI.getAllItems()
@@ -28,7 +30,7 @@ const StorageList = () => {
         <Card
         key={item.id}
         description ={item.description}
-        image ={item.image}
+        image ={`${SourceLinkPrefix}${item.image}` || `${item.image}`}
         buttontext ="Использовать"
         buttonlink="nothing"
       > {item.name}

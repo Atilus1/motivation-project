@@ -5,6 +5,7 @@ import { TasksContext } from '@/entities/todo'
 import Difficulty from '../../shared/ui/Difficulty'
 import RouterLink from '../../shared/ui/RouterLink/RouterLink'
 
+
 const AddTaskForm = (props) => {
   const { styles } = props
 
@@ -78,7 +79,7 @@ const AddTaskForm = (props) => {
       >
         <RouterLink
               className={styles.titleLink}
-              to={`/shop`}
+              to={`shop`}
             >
               Магазин
             </RouterLink>
@@ -88,7 +89,7 @@ const AddTaskForm = (props) => {
       >
         <RouterLink
               className={styles.titleLink}
-              to={`/storage`}
+              to={`storage`}
             >
               Хранилище
             </RouterLink>

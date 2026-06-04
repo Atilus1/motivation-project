@@ -28,6 +28,8 @@ const TodoItem = (props) => {
     setBalance,
   } = useContext(TasksContext)
 
+  
+
   const theme = useTheme()
 
   const isEditing = editingTaskId === id

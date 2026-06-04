@@ -11,6 +11,7 @@ const TodoInfo = (props) => {
     tasks,
     deleteAllTasks,
   } = useContext(TasksContext)
+  
 
   const total = tasks.length
   const hasTasks = total > 0
