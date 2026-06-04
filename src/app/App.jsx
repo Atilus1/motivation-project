@@ -26,10 +26,13 @@ const App = () => {
   }
 
   const routes = {
+    '/motivation-project': TasksPage,
     '/': TasksPage,
     '/tasks/:id': TaskPage,
     '/shop': Shop,
+    '/motivation-project/shop': Shop,
     '/storage': Storage,
+    '/motivation-project/storage': Storage,
     '*': () => <div>404 Page not found</div>,
   }
 
