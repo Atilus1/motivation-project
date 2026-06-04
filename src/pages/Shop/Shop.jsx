@@ -10,6 +10,8 @@ const Shop = () => {
   let globalBalance = localStorage.getItem('balance') || 0
   let [shopBalance, setShopBalance] = useState(+globalBalance)
   localStorage.setItem('balance', shopBalance)
+
+  const OldId = Date.now().toString()
   
 
   const Buying = useCallback((itemPrice, itemData) => { // добавим параметр с данными товара
@@ -19,7 +21,7 @@ const Shop = () => {
         const existingItems = localStorage.getItem('items');
         const itemsArray = existingItems ? JSON.parse(existingItems) : [];
         
-        // 2. Добавляем новый товар
+        // 2. Добавляем новый товар купон
         itemsArray.push(itemData);
         
         // 3. Сохраняем обновлённый массив обратно в localStorage (как строку JSON)
@@ -64,26 +66,25 @@ const Shop = () => {
       <div className={styles.shopContainer}>
       <Card
           description ="Это вкусный сникерс шоколад"
-          image ={`${SourceLinkPrefix}src/shared/assets/images/img1.png` || `src/shared/assets/images/img1.png`}
+          image ={`${SourceLinkPrefix}src/shared/assets/images/img1.png` ?? `src/shared/assets/images/img1.png`}
           buttontext ="Купить"
-          buttonlink="shop"
           price={2}
           func={(price) => Buying(price, {
-            id: "01",
-            name: "сникерс",
+            id: crypto.randomUUID() ?? {OldId},
+            name: "Шоколадка",
             image: "src/shared/assets/images/img1.png",
-            description: "вкусный сникерс"
+            description: "Вкусный сникерс"
           })}
         > Сьесть шоколадку
         </Card>
         <Card
           description ="Возможность сходить в кафе и вкусно поесть"
-          image ={`${SourceLinkPrefix}src/shared/assets/images/img2.jpg` || `src/shared/assets/images/img2.jpg`}
+          image ={`${SourceLinkPrefix}src/shared/assets/images/img2.jpg` ?? `src/shared/assets/images/img2.jpg`}
           buttontext ="Купить"
           buttonlink="shop"
           price={9}
           func={(price) => Buying(price, {
-            id: "02",
+            id: crypto.randomUUID() ?? {OldId},
             name: "Кафе",
             image: "src/shared/assets/images/img2.jpg",
             description: "Возможность сходить в кафе и вкусно поесть"
@@ -92,12 +93,12 @@ const Shop = () => {
         </Card>
         <Card
           description ="Сможешь поехать на море и как следует отдохнуть"
-          image ={`${SourceLinkPrefix}src/shared/assets/images/img3.jfif` || `src/shared/assets/images/img3.jfif`}
+          image ={`${SourceLinkPrefix}src/shared/assets/images/img3.jfif` ?? `src/shared/assets/images/img3.jfif`}
           buttontext ="Купить"
           buttonlink="shop"
           price={60}
           func={(price) => Buying(price, {
-            id: "03",
+            id: crypto.randomUUID() ?? {OldId},
             name: "Поездка на море",
             image: "src/shared/assets/images/img3.jfif",
             description: "Сможешь поехать на море и как следует отдохнуть"

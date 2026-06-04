@@ -8,7 +8,6 @@ const Card = (props) => {
         description,
         image,
         buttontext,
-        buttonlink,
         price,
         func,
     } = props
@@ -20,12 +19,7 @@ const Card = (props) => {
             <p>{description}</p>
             <p>{price} ⭐</p>
             <Button type="button" onClick={() => func(price)}>
-                <RouterLink
-                    className={styles.titleLink}
-                    to={`${buttonlink}`}
-                >
                     {buttontext}
-                </RouterLink>
             </Button>
         </div>
     )
