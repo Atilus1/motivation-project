@@ -3,7 +3,6 @@ import Button from '@/shared/ui/Button'
 import {useContext, useState} from 'react'
 import { TasksContext } from '@/entities/todo'
 import Difficulty from '../../shared/ui/Difficulty'
-import RouterLink from '../../shared/ui/RouterLink/RouterLink'
 
 
 const AddTaskForm = (props) => {
@@ -21,6 +20,8 @@ const AddTaskForm = (props) => {
     handleClick2,
     handleClick3,
     difficulty,
+    balance,
+    setBalance
   } = useContext(TasksContext)
 
   const [error, setError] = useState('')
@@ -33,7 +34,6 @@ const AddTaskForm = (props) => {
 
     if (!isNewTaskTitleEmpty) {
       addTask(clearNewTaskTitle, difficulty)
-      console.log(difficulty)
     }
   }
 
@@ -73,28 +73,7 @@ const AddTaskForm = (props) => {
       handleClick2={handleClick2}
       handleClick3={handleClick3}
       />
-      <p>Баллы = {localStorage.getItem('balance')}⭐</p>
-      <Button
-        type="button"
-      >
-        <RouterLink
-              className={styles.titleLink}
-              to={`shop`}
-            >
-              Магазин
-            </RouterLink>
-      </Button>
-      <Button
-        type="button"
-      >
-        <RouterLink
-              className={styles.titleLink}
-              to={`storage`}
-            >
-              Хранилище
-            </RouterLink>
-      </Button>
-      
+      <p>Баллы = {balance}⭐</p>
     </div>
   )
 }

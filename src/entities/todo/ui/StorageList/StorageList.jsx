@@ -16,17 +16,30 @@ const StorageList = () => {
   useEffect(() => {
     tasksAPI.getAllItems()
     .then(setItems)
-
-    setItems(JSON.parse(localStorage.getItem('items') ?? '[]'))
+    setItems(JSON.parse(localStorage.getItem('items')) ?? '[]')
   }, [])
 
-  const hasItems = items.length > 0
+  const hasItems = items.length > 0 && items != undefined
+
+  const getSavedItems = () => {
+    try {
+      const raw = localStorage.getItem('items');
+      if (raw === null) return [];           // ключа нет — новый массив
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : []; // если вдруг не массив
+    } catch (error) {
+      console.error('Ошибка чтения localStorage:', error);
+      // После ошибки очищаем хранилище, чтобы не ломалось в будущем
+      localStorage.setItem('items', JSON.stringify([]));
+      return [];
+    }
+  };
 
   const deleteStorageItemById = (id) => {
     setDisappearingItemId(disappearingItemId = id)
     setTimeout(() => {
       // 1. Получаем текущий массив (можно взять из замыкания items, но безопаснее через localStorage)
-    const currentItems = JSON.parse(localStorage.getItem('items') || '[]');
+      const currentItems = getSavedItems();
     // 2. Фильтруем – удаляем элемент с переданным id
     const updatedItems = currentItems.filter(item => item.id !== id);
     // 3. Сохраняем в localStorage
@@ -35,7 +48,6 @@ const StorageList = () => {
     setItems(updatedItems);
     setDisappearingItemId(null)
     }, 400)
-    
   }
 
   if (!hasItems) {
@@ -50,7 +62,7 @@ const StorageList = () => {
         id={item.id}
         description ={item.description}
         disappearingItemId={disappearingItemId}
-        image ={`${SourceLinkPrefix}${item.image}` ?? `${item.image}`}
+        image ={item.image}
         buttontext ="Использовать"
         buttonlink="nothing"
         func={() => deleteStorageItemById(item.id)}

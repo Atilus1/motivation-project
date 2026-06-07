@@ -4,6 +4,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.titleBlock p {
+    text-align: center;
+}
+
 .shop {
     display: flex;
     flex-direction: column;
@@ -26,4 +31,15 @@
 img {
     max-width: 250px;
     max-height: 250px;
+}
+
+.shopCard {
+    display: flex;
+    gap: 1.8rem;
+    flex-direction: column;
+    padding: 2.5rem;
+    border: 1px solid var(--color-dark-2);
+    border-radius: var(--border-radius);
+    align-items: center;
+    justify-content: center;
 }

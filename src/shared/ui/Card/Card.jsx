@@ -1,5 +1,4 @@
 import Button from '../Button'
-import RouterLink from '../RouterLink/RouterLink'
 import styles from './Card.module.scss'
 
 const Card = (props) => {

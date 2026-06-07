@@ -1,19 +1,31 @@
 .field {
   position: relative;
+  display: flex;
+  gap: .2rem;
 
-  &:has(.input:not(:placeholder-shown)) .label {
+
+  &:has(.input:not(:placeholder-shown)) .label, &:has(.input:not(:placeholder-shown)) .label2 {
     color: var(--color-black);
-    scale: 0.7;
-    translate: -1.75em -2.6em;
+    font-size: 16px;
+    translate: -1.75em -2.8em;
   }
 }
 
 .label {
   position: absolute;
   top: 50%;
-  left: 17px;
+  left: 10px;
   color: var(--color-gray-3);
   translate: 0 -50%;
+  scale: 0.85;
+}
+.label2 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: var(--color-gray-3);
+  translate: 0 -50%;
+  z-index: -1;
 }
 
 .input {

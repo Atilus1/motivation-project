@@ -1,5 +1,4 @@
 import Button from '../Button'
-import RouterLink from '../RouterLink/RouterLink'
 import styles from '../Card/Card.module.scss'
 import { useTheme } from '@/shared/context/ThemeContext'
 
